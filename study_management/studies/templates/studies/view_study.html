@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Study</title>
+</head>
+<body>
+    <h2>View Study</h2>
+    <p>Study Name: {{ study.study_name }}</p>
+    <p>Study Phase: {{ study.study_phase }}</p>
+    <p>Sponsor Name: {{ study.sponsor_name }}</p>
+    <p>Study Description: {{ study.study_description }}</p>
+    <a href="{% url 'study_list' %}">Cancel</a>
+</body>
+</html>

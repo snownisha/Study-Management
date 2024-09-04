@@ -1,0 +1,37 @@
+<h2>Study Management</h2>
+<form method="post" action="{% url 'delete_study' %}">
+    {% csrf_token %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Study Name</th>
+                <th>Study Phase</th>
+                <th>Sponsor Name</th>
+                <th>Study Description</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for study in studies %}
+            <tr>
+                <td><input type="checkbox" name="delete_ids" value="{{ study.id }}"></td>
+                <td>{{ study.study_name }}</td>
+                <td>{{ study.study_phase }}</td>
+                <td>{{ study.sponsor_name }}</td>
+                <td>{{ study.study_description }}</td>
+                <td><a href="{% url 'view_study' study.pk %}">View</a></td>
+                <td><a href="{% url 'edit_study' study.pk %}">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="margin-top: 20px;">
+        <a href="{% url 'add_study' %}" 
+           style="padding: 10px 20px; background-color: #2a64d3; color: white; text-decoration: none; margin-right: 90px;">Add Study</a>
+        <button type="submit" 
+                style="padding: 10px 20px; background-color: #2a64d3; color: white; border: none; cursor: pointer;">Delete Study</button>
+    </div>
+    
+</form>
